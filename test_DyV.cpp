@@ -20,6 +20,7 @@ int main(){
 
 	QuickSort(g, 0, 3);
 	QuickINI(d,0,3);
+	QuickMED(a,0,3);
 
 
 	for(int i = 0; i < 4; i++){
@@ -32,4 +33,9 @@ int main(){
 	}
        
 	std::cout<<std::endl;
+	for(int i = 0; i < 4; i++){
+                std::cout<<a[i]<<" ";
+        }
+
+      	return 0;
 }
