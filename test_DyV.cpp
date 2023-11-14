@@ -19,10 +19,17 @@ int main(){
 	std::cout << "BusquedaBinariaINV Char: " <<BusquedaBinariaINV ('c',f,0,2)<<"\n";
 
 	QuickSort(g, 0, 3);
+	QuickINI(d,0,3);
+
 
 	for(int i = 0; i < 4; i++){
 		std::cout<<g[i]<<" ";
 	}
 
 		std::cout<<std::endl;
+	for(int i = 0; i < 4; i++){
+		std::cout<<d[i]<<" ";
+	}
+       
+	std::cout<<std::endl;
 }
