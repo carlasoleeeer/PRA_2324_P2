@@ -44,12 +44,17 @@ int Partition(std::vector <T>&V,int ini,int fin){
 	int i = ini;
 	int j;
 	for(  j =  ini; j< fin;j ++){
-		if(V[j]<= x){
-			std::swap(V[i],V[j]);
-			i = i +1;
-		}
-	}
-	std::swap (V[i],V[j]);
+
+               if(V[j] <= x){
+               int aux = V[i];
+                V[i] = V[j];
+                V[j] = aux;
+                i = i +1;
+               }
+        }
+        int aux1 = V[i];
+        V[i] = V[j];
+        V[j] = aux1;
 	return i;
 	
 }
@@ -62,6 +67,38 @@ void QuickSort(std::vector <T>& V,int ini,int fin){
 	}
 }
 template <typename T>
+int PartitionMED(std::vector <T>&V,int ini,int fin){
+	int medio= (ini+fin)/2;
+        T x = V[medio];
+        int i = ini;
+        int j;
+        for(  j =  ini; j<=fin;j ++){
+               
+               if(V[j] < x){
+               int aux = V[i];
+                V[i] = V[j];
+                V[j] = aux;
+                i = i +1;
+               }
+        }
+        int aux1 = V[i];
+        V[i] = V[medio];
+        V[medio] = aux1;
+        return i;
+
+}
+
+template <typename T>
+void QuickMED(std::vector <T> &V,int ini,int fin){
+        if(ini < fin ){
+                int pivot = PartitionMED(V,ini,fin);
+                QuickMED(V,ini,pivot-1);
+                QuickMED(V,pivot+1,fin);
+        }
+
+}
+
+template <typename T>
 int PartitionINI(std::vector <T>&V,int ini,int fin){
         T x = V[ini];
         int i = ini;
@@ -72,7 +109,7 @@ int PartitionINI(std::vector <T>&V,int ini,int fin){
                         i = i +1;
                 }
         }
-        std::swap (V[i],V[j]);
+        std::swap (V[i],V[fin]);
         return i;
 
 }
