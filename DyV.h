@@ -61,3 +61,28 @@ void QuickSort(std::vector <T>& V,int ini,int fin){
 		QuickSort(V,pivot+1,fin);
 	}
 }
+template <typename T>
+int PartitionINI(std::vector <T>&V,int ini,int fin){
+        T x = V[ini];
+        int i = ini;
+        int j;
+        for(  j =  ini; j<fin;j ++){
+                if(V[j]<= x){
+                        std::swap(V[i],V[j]);
+                        i = i +1;
+                }
+        }
+        std::swap (V[i],V[j]);
+        return i;
+
+}
+
+template <typename T>
+void QuickINI(std::vector <T> &V,int ini,int fin){
+	if(ini < fin ){
+                int pivot = PartitionINI(V,ini,fin);
+                QuickINI(V,ini,pivot-1);
+                QuickINI(V,pivot+1,fin);
+        }
+
+}
